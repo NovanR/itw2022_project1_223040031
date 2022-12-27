@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .tentang {
+        display: grid;
+        grid-template-columns: 500px 1fr;
+        grid-template-areas: 
+              'kolom1' 'kolom1'
+              'kolom2' 'kolom2';
+        width: 80%;
+        margin: auto;
+      
+      }
+
+
+      @media (max-width: 667px) {
+        .tentang {
+          grid-template-columns: 
+            'kolom1' 'kolom2';
+        }
+      }
+
+      .tentang .kolom1 {
+        background-color: lightblue;
+        padding: 100px;
+        grid-area: kolom1;
+      }
+
+      .tentang .kolom2 {
+        background-color: salmon;
+        padding: 100px;
+        grid-area: kolom2;
+      }
+
+      .tentang .baris {
+        display: flex; 
+        width: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="tentang">
+      <div class="baris kolom1">
+          header
+      </div>
+      <div class="baris kolom2">
+          main
+      </div>
+    </div>
+  </body>
+</html>
