@@ -23,6 +23,8 @@ body {
   height: 100%;
   scroll-behavior: smooth !important;
   width: 100%;
+  background-image: url(../img/background.jpg);
+  background-repeat: repeat-y;
 }
 
 a {
@@ -30,16 +32,6 @@ a {
   color: black;
 }
 
-.teks1 h2 {
-  margin-top: -40px;
-}
-
-.bebas h1 {
-  opacity: 0;
-  text-align: left;
-  display: inline-block;
-  margin-top: 200px;
-}
 
 nav {
   overflow: hidden;
@@ -56,7 +48,7 @@ nav {
 
 .nama {
   margin-top: -30px;
-  padding-left: 30px;
+  padding-left: 10px;
   font-size: 30px;
   font-weight: bold;
 }
@@ -77,7 +69,6 @@ nav li {
 }
 
 nav a {
-  text-decoration: none;
   padding: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -101,12 +92,16 @@ label {
   nav {
     align-items: center;
   }
-
+  
   nav .nama {
     width: 30%;
-    position: absolute;
-    left: 0;
     padding-top: 30px;
+  }
+  
+  nav #menu-button1:checked ~ ul {
+    max-height: 100%;
+    transition: all ease-in-out 1s;
+    padding-left: 0px;
   }
 
   nav ul {
@@ -121,7 +116,6 @@ label {
 
   nav li {
     display: block;
-    width: 100%;
     padding: 5px;
   }
 
@@ -138,138 +132,69 @@ label {
     position: absolute;
     right: 2%;
   }
-
-  nav #menu-button1:checked ~ ul {
-    max-height: 100%;
-    transition: all ease-in-out 1s;
-    padding-left: 0px;
-  }
 }
+  
+
 
 .container {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  width: 80%;
-  margin: auto;
-  grid-template-columns: 200px 120px;
-  grid-template-areas:
-    "foto foto"
-    "judul judul"
-    "about about";
-}
-
-.container p {
-  text-align: center;
-  font-style: italic;
-  font-weight: bold;
-  margin-top: 100px;
+  align-items: center;
+  width: 100%;
 }
 
 .container h1 {
-  text-align: center;
-  font-family: autumn;
-  font-size: 80px;
-  margin-left: -40px;
-  margin-top: -10px;
-  font-weight: bold;
-  font-style: italic;
+  margin-top: 0;
 }
 
-.container .judul {
-  margin-top: 70px;
-  width: 100%;
-  grid-area: judul;
-  /* margin-left: -200px; */
-}
-
-.container .about {
-  grid-area: about;
-}
-
-.container .foto {
-  margin-top: 100px;
-  /* width: 100%; */
-  grid-area: foto;
-  width: 400px;
-}
-
-.container .foto .foto1 {
-  border-radius: 0 20% 0 20%;
-  background-color: darkgrey;
-  height: 400px;
-  display: blok;
-}
-
-.container .judul .about .about1 {
-  background-color: lightgrey;
-  width: 30%;
-  padding: 8px;
-  border-radius: 30px;
-  margin: auto;
-  box-shadow: 3px 3px 2px;
-}
-
-.container .judul .about1 p {
-  margin: 0px;
-  color: black;
-}
-
-.container .judul .about1:active {
-  transform: translate(7px, 7px);
-}
-
-@media screen and (min-width: 1200px) {
-  .container {
-    grid-template-areas:
-      "judul foto"
-      "about foto";
+.container .foto img {
+  width: 100%; }
+  
+  .container .judul p {
+    font-size: 20px;
+    text-align: center;
   }
-
-  .container .foto .foto1 {
+  
+  .container .judul .about {
+    background-color: lightgrey;
+    width: 130px;
+    text-align: center;
+    padding: 8px;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+    border-radius: 30px;
     margin: auto;
+    box-shadow: 3px 3px 2px;
+  }
+  
+  .container .judul .about:active {
+    transform: translate(7px, 7px);
+  }
+  
+  .container .judul .about:hover {
+    cursor: pointer;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-top: 200px;
+    font-family: autumn;
+    font-size: 60px;
+    font-style: italic;
   }
 
-  .container .judul {
-    margin-left: -200px;
+  .teks1 h2 {
+    margin-top: -40px;
   }
-
-  .container .judul .about .logo {
-    margin-top: 20px;
+  
+  .bebas h1 {
+    opacity: 0;
+    text-align: left;
+    display: inline-block;
+    margin-top: 200px;
   }
-
-  .container .judul .about .about1 {
-    width: 70%;
-  }
-
-  /* .project {
-    grid-template-areas: "meerkat" "gasibu" "tangkuban";
-  } */
-
-  .tentang {
-    grid-template-areas:
-      "kolom1" "kolom2"
-      "kolom1" "kolom2";
-  }
-}
-
-.logo {
-  text-align: center;
-  font-size: 30px;
-  margin: auto;
-  margin-top: 20px;
-}
-
-.logo a {
-  padding-right: 10px;
-}
-
-h2 {
-  text-align: center;
-  margin-top: 200px;
-  font-family: autumn;
-  font-size: 60px;
-  font-style: italic;
-}
 
 .project {
   display: flex;
@@ -308,10 +233,21 @@ h2 {
 }
 
 .project .pembungkus h3 {
-  margin-left: 10px; 
+  margin-left: 10px;
   color: white;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   font-style: italic;
+}
+
+.judul2 {
+  margin-top: 0;
+}
+
+.bebas2 h1 {
+  opacity: 0;
+  display: inline-block;
+  text-align: left;
+  margin-top: 50px;
 }
 
 @media (max-width: 915px) {
@@ -329,7 +265,7 @@ h1 {
 }
 
 .tentang {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: auto;
   height: 500px;
   width: 100%;
@@ -346,25 +282,23 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(42, 42, 42);
-  color: rgb(25, 25, 25);
+  /* background-color: rgb(42, 42, 42);
+  color: rgb(25, 25, 25); */
   margin: 0;
 }
 
 .tentang .kolom1 P {
   padding: 20px;
-  font-family: partner;
   margin: auto;
   font-size: 20px;
   color: white;
-  text-align: justify ;
+  text-align: justify;
 }
 
 .tentang .kolom2 {
   text-align: center;
   width: 700px;
   margin: auto;
-  
 }
 
 .tentang .kolom2 img {
@@ -372,12 +306,10 @@ h1 {
   height: 60%;
 }
 
-
 @media (max-width: 1415px) {
   .tentang {
     height: 700px;
     display: flex;
-    
   }
 
   .tentang .kolom2 .img {
@@ -393,17 +325,26 @@ h1 {
     margin-bottom: 0;
     margin-top: 0;
   }
-
 }
 
+.bebas4 h1 {
+  margin: 0;
+  display: inline-block;
+  opacity: 0;
+  
+}
 
+.skill4 {
+  margin-top: 0;
+}
 .skill {
   background-color: rgb(25, 25, 25);
-  height: 800px;
+  height: 700px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .skill .skill3 {
@@ -417,19 +358,19 @@ h1 {
 }
 
 .skill .skill3 img {
-  width: 400px;
-  height: 400px;  
+  width: 100%;
+  height: 100%;
 }
 
 .skill .skill2 img {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
 
 .skill p {
   color: white;
   font-family: partner;
-  padding: 40px;
+  /* padding: 40px; */
   margin-top: -100px;
   font-size: 30px;
   font-style: italic;
@@ -438,25 +379,15 @@ h1 {
 }
 
 @media (max-width: 817px) {
-  .skill .skill3 {
-    margin-top: 100px;
-
-  }
-  
   .skill {
     height: 1200px;
-    justify-content: none;
+    justify-content: center;
     display: flex;
   }
 
-  .skill .ket, 
-  .skill p
-   {
-    margin: 0;
-    margin-top: -50px;
-    padding-bottom: 20px;
-    padding-top: 20px
-  }
+ .skill .skill2 p {
+  padding-top: 20px
+ }
 }
 
 @media (max-width: 900px) {
@@ -468,39 +399,37 @@ h1 {
     margin: auto;
   }
 
-  .contact .note p {
-    margin-top: -200px;
-  }
-
-  .contact label {
-    text-align: center;
-  }
-
   .contact input {
     width: 400px;
   }
 
-  .contact label {
-    justify-content: flex-start;
-  }
+  
 }
+
+.bebas3 h1 {
+  margin-bottom: 0;
+  opacity: 0;
+  display: inline-block;
+  margin-top: 0;
+}
+
+.kontak2 {
+  margin-top: 0;
+}
+
 
 .contact {
   background-color: rgb(42, 42, 42);
   color: white;
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .contact form label {
   display: inline;
   color: white;
-}
-
-.contact form {
-  padding: 20px;
-  padding-left: 70px;
 }
 
 .contact .tombol {
@@ -513,17 +442,36 @@ h1 {
   cursor: pointer;
 }
 
-.contact .nama,
-.contact .email {
+.contact .nama {
   border-radius: 5px;
   height: 30px;
-  padding-left: 10px;
+  width: 100%;
   font-size: 15px;
   font-weight: normal;
 }
 
-.contact .note p {
-  margin-top: 350px;
-  margin-right: 60px;
-  font-style: italic;
+.contact .email {
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.contact form .pesan {
+  width: 100%;
+}
+
+@media (max-width: 470px) {
+  .contact .nama {
+    width: 90%;
+  }
+
+  .contact .email {
+    width: 90%;
+  }
+
+  .contact form .pesan {
+    width: 90%;
+  }
 }
